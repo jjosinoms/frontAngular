@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class CriarContaComponent {
 
   //atributo
-  apiUrl: string = "http://localhost:3000"
+  apiUrl: string = "http://localhost:3000/"
 
   // construtor para injecao de dependencia
   constructor(
@@ -20,7 +20,7 @@ export class CriarContaComponent {
 
   // objeto para capturar o formulário
   formCriarConta = new FormGroup({
-    nome: new FormControl('', 
+    nomeSelecao: new FormControl('', 
       [Validators.required, Validators.minLength(8), Validators.maxLength(150)]),
     grupo: new FormControl('', 
     [Validators.required, Validators.minLength(1), Validators.maxLength(2)]),
@@ -43,7 +43,7 @@ export class CriarContaComponent {
   onSubmit(){
     
     //fazendo uma requisicao POST para o endpoint /api/selecoes
-    this.HttpClient.post(this.apiUrl + "/selecoes", this.formCriarConta.value)
+    this.HttpClient.post(this.apiUrl + "selecoes", this.formCriarConta.value)
     .subscribe(/*capturar retorno da api*/ {
       next: (data) => { //resposta de sucesso da API
         console.log(data)
