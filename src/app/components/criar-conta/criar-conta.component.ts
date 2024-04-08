@@ -20,10 +20,14 @@ export class CriarContaComponent {
 
   // objeto para capturar o formulário
   formCriarConta = new FormGroup({
-    nomeSelecao: new FormControl('', 
+    nome: new FormControl('', 
       [Validators.required, Validators.minLength(8), Validators.maxLength(150)]),
-    grupo: new FormControl('', 
-    [Validators.required, Validators.minLength(1), Validators.maxLength(2)]),
+    email: new FormControl('',
+      [Validators.required, Validators.email]),
+    telefone: new FormControl('', 
+      [Validators.required, Validators.minLength(1), Validators.maxLength(25)]),
+    mensagem: new FormControl('', 
+      [Validators.required, Validators.minLength(1), Validators.maxLength(150)]),
     /*
     email: new FormControl('',
       [Validators.required, Validators.email]),
@@ -43,7 +47,7 @@ export class CriarContaComponent {
   onSubmit(){
     
     //fazendo uma requisicao POST para o endpoint /api/selecoes
-    this.HttpClient.post(this.apiUrl + "selecoes", this.formCriarConta.value)
+    this.HttpClient.post(this.apiUrl + "usuarios", this.formCriarConta.value)
     .subscribe(/*capturar retorno da api*/ {
       next: (data) => { //resposta de sucesso da API
         console.log(data)

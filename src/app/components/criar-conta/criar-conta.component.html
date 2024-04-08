@@ -4,54 +4,94 @@
       <div class="card">
         <div class="card-body">
           <div class="text-center">
-            <h2 class="card-title">Criar Conta</h2>
-            <p class="card-subtitle">Entre com os dados para cadastrar-se</p>
+            <h2 class="card-title">Contato</h2>
+            <p class="card-subtitle">Entre com os dados para entrar em contato</p>
           </div>
 
           <hr />
 
           <form [formGroup]="formCriarConta" (ngSubmit)="onSubmit()">
             <div class="mb-2">
-              <label for="nomeSelecao" class="form-label"> Nome do usuário</label>
+              <label for="nome" class="form-label"> Nome do usuário</label>
               <input
                 type="text"
                 class="form-control"
-                id="nomeSelecao"
-                placeholder="Seu nomeSelecao"
-                formControlName="nomeSelecao"
+                id="nome"
+                placeholder="Seu nome"
+                formControlName="nome"
               />
               <span class="text-danger">
-                <span *ngIf="form.nomeSelecao.touched && form.nomeSelecao.invalid">
-                  <span *ngIf="form.nomeSelecao.errors.required">
-                    Por favor, informe o nome do usuário.
+                <span *ngIf="form.nome.touched && form.nome.invalid">
+                  <span *ngIf="form.nome.errors.required">
+                    Por favor, informe o nome.
                   </span>
-                  <span *ngIf="form.nomeSelecao.errors.minlength">
+                  <span *ngIf="form.nome.errors.minlength">
                     Por favor, informe no mínimo 8 caracteres.
                   </span>
-                  <span *ngIf="form.nomeSelecao.errors.maxlength">
+                  <span *ngIf="form.nome.errors.maxlength">
                     Por favor, informe no máximo 150 caracteres.
                   </span>
                 </span>
               </span>
             </div>
             <div class="mb-2">
-              <label for="grupo" class="form-label"> Grupo da Selecao</label>
+              <label for="email" class="form- label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Seu e-mail"
+                formControlName="email"
+              />
+              <span class="text-danger">
+                <span *ngIf="form.email.touched && form.email.invalid">
+                  <span *ngIf="form.email.errors.required">
+                    Por favor, informe o email.
+                  </span>
+                  <span *ngIf="form.email.errors.email">
+                    Por favor, informe um endereço de email válido.
+                  </span>
+                </span>
+              </span>
+            </div>
+            <div class="mb-2">
+              <label for="telefone" class="form-label"> Telefone</label>
               <input
                 type="text"
                 class="form-control"
-                id="grupo"
-                placeholder="Grupo"
-                formControlName="grupo"
+                id="telefone"
+                placeholder="Seu telefone"
+                formControlName="telefone"
               />
               <span class="text-danger">
-                <span *ngIf="form.grupo.touched && form.grupo.invalid">
-                  <span *ngIf="form.grupo.errors.required">
-                    Por favor, informe o nome do País.
+                <span *ngIf="form.telefone.touched && form.telefone.invalid">
+                  <span *ngIf="form.telefone.errors.required">
+                    Por favor, informe seu telefone.
                   </span>
-                  <span *ngIf="form.grupo.errors.minlength">
+                  <span *ngIf="form.telefone.errors.maxlength">
+                    Por favor, informe no máximo 150 caracteres.
+                  </span>
+                </span>
+              </span>
+            </div>
+            <div class="mb-2">
+              <label for="mensagem" class="form-label"> Mensagem</label>
+              <input
+                type="text"
+                class="form-control"
+                id="mensagem"
+                placeholder="Sua mensagem"
+                formControlName="mensagem"
+              />
+              <span class="text-danger">
+                <span *ngIf="form.mensagem.touched && form.mensagem.invalid">
+                  <span *ngIf="form.mensagem.errors.required">
+                    Por favor, informe sua mensagem.
+                  </span>
+                  <span *ngIf="form.mensagem.errors.minlength">
                     Por favor, informe no mínimo 8 caracteres.
                   </span>
-                  <span *ngIf="form.grupo.errors.maxlength">
+                  <span *ngIf="form.mensagem.errors.maxlength">
                     Por favor, informe no máximo 150 caracteres.
                   </span>
                 </span>
@@ -63,14 +103,15 @@
                 class="btn btn-primary"
                 [disabled]="!formCriarConta.valid"
               >
-                Realizar Cadastro
+                Enviar Mensagem
               </button>
             </div>
             <div class="d-grid mb-2">
-              <a [routerLink]="['/login']" class="btn btn-light">
+              <!--<a [routerLink]="['/login']" class="btn btn-light">
                 Já possui conta?
                 <strong>Acesse aqui!</strong>
               </a>
+            -->
             </div>
           </form>
         </div>
